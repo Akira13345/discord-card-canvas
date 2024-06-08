@@ -20,11 +20,6 @@ export type FontResolvable =
     | 'Spectral SC'
     | 'Bellota';
 
-/**
- * User status in Discord
- */
-export type UserStatus = 'online' | 'idle' | 'dnd' | 'offline' | 'invisible' | 'streaming';
-
 export interface TextCard {
     /**
      * Content (string)
