@@ -4,7 +4,6 @@ import {
   Color,
   FontResolvable,
   TextCard,
-  UserStatus,
 } from '../../../interface/card.interface';
 import { hexToRgbA } from '../../../utils/hex-rgba';
 
@@ -29,10 +28,6 @@ export interface RankCardParams {
      * Required experience to the next level
      */
     requiredXP: number;
-    /**
-     * User status
-     */
-    userStatus: UserStatus;
     /**
      * The color of the current experience number; Default: '#0CA7FF'
      */
@@ -102,7 +97,6 @@ export class RankCardBuilder {
     public currentRank: number;
     public currentXP: number;
     public requiredXP: number;
-    public userStatus: UserStatus;
     public backgroundImgURL?: string;
     public backgroundColor: BackgroundRankColor = { background: '#FFF', bubbles: '#0CA7FF' };
     public avatarImgURL?: string;
@@ -122,7 +116,6 @@ export class RankCardBuilder {
         this.currentRank = params.currentRank;
         this.currentXP = params.currentXP;
         this.requiredXP = params.requiredXP;
-        this.userStatus = params.userStatus;
         if (params.backgroundImgURL) this.backgroundImgURL = params.backgroundImgURL;
         if (params.backgroundColor) this.backgroundColor = params.backgroundColor;
         if (params.avatarImgURL) this.avatarImgURL = params.avatarImgURL;
@@ -434,37 +427,6 @@ export class RankCardBuilder {
                     throw new Error('Error loading the avatar image. The URL may be invalid.');
                 }
                 ctx.restore();
-
-                // Status
-                ctx.beginPath();
-                if (this.userStatus === 'online') {
-                    ctx.arc(159, 179, 17, 0, Math.PI * 2);
-                    ctx.fillStyle = '#57F287';
-                } else if (this.userStatus === 'idle') {
-                    ctx.arc(159, 179, 17, Math.PI * 0.9, Math.PI * 1.6, true);
-                    ctx.arc(148, 168, 17, Math.PI * 1.9, Math.PI * 0.6);
-                    ctx.fillStyle = '#faa61a';
-                } else if (this.userStatus === 'dnd') {
-                    ctx.arc(151, 179, 3.5, Math.PI * 1.5, Math.PI * 0.5, true);
-                    ctx.arc(167, 179, 3.5, Math.PI * 0.5, Math.PI * 1.5, true);
-                    ctx.closePath();
-                    ctx.arc(159, 179, 17, 0, Math.PI * 2);
-                    ctx.fillStyle = '#ed4245';
-                } else if (this.userStatus === 'streaming') {
-                    ctx.moveTo(168, 179);
-                    ctx.lineTo(154.5, 170);
-                    ctx.lineTo(154.5, 188);
-                    ctx.closePath();
-                    ctx.arc(159, 179, 17, 0, Math.PI * 2);
-                    ctx.fillStyle = '#593695';
-                } else {
-                    ctx.arc(159, 179, 9, Math.PI * 1.5, Math.PI * 0.5, true);
-                    ctx.arc(159, 179, 9, Math.PI * 0.5, Math.PI * 1.5, true);
-                    ctx.closePath();
-                    ctx.arc(159, 179, 17, 0, Math.PI * 2);
-                    ctx.fillStyle = '#747f8d';
-                }
-                ctx.fill();
             }
         }
 
