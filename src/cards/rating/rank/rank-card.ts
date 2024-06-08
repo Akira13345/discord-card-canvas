@@ -415,7 +415,6 @@ export class RankCardBuilder {
                 // Avatar
                 ctx.beginPath();
                 ctx.arc(105, 125, 75, 0, Math.PI * 0.36, true);
-                ctx.arc(159, 179, 23.5, Math.PI * 0.82, Math.PI * 1.68, false);
                 ctx.arc(105, 125, 75, Math.PI * 0.15, Math.PI * 1.5, true);
                 ctx.closePath();
                 ctx.save();
