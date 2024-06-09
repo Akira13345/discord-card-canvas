@@ -495,7 +495,7 @@ export class RankCardBuilder {
             const rankFont =
                 this.rankPrefix && this.rankPrefix.font ? this.rankPrefix.font : this.fontDefault;
             const rankContent =
-                this.rankPrefix && this.rankPrefix.content ? this.rankPrefix.content : 'RANK';
+                this.rankPrefix && this.rankPrefix.content ? this.rankPrefix.content : 'RANG';
             ctx.fillStyle =
                 this.rankPrefix && this.rankPrefix.color
                     ? this.rankPrefix.color
@@ -517,7 +517,7 @@ export class RankCardBuilder {
             const lvlFont =
                 this.lvlPrefix && this.lvlPrefix.font ? this.lvlPrefix.font : this.fontDefault;
             const lvlContent =
-                this.lvlPrefix && this.lvlPrefix.content ? this.lvlPrefix.content : 'LVL';
+                this.lvlPrefix && this.lvlPrefix.content ? this.lvlPrefix.content : 'NIVEAU';
             ctx.fillStyle =
                 this.lvlPrefix && this.lvlPrefix.color
                     ? this.lvlPrefix.color
